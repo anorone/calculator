@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+body {
+  display: flex;
+  height: 100vh;
+  margin: 0;
+  color: #fff;
+  background-color: #333;
+}
+
+.calculator {
+  width: 450px;
+  margin: auto;
+  font-family: 'Roboto Mono', monospace;
+  background-color: #2c3e50;
+}
+
+.calculator__scoreboard {
+  display: flex;
+  justify-content: space-between;
+  min-height: 75px;
+  padding: 10px;
+  text-align: right;
+  background-color: #505c68;
+}
+
+.calculator__scoreboard-memory {
+  align-self: flex-end;
+  margin: 5px 0;
+  margin-left: 15px;
+}
+
+.calculator__scoreboard-memory::before {
+  color: #ced4d9;
+  font-size: 1.2em;
+  content: 'M';
+}
+
+.calculator__scoreboard-score {
+  margin: 5px 0;
+  margin-left: auto;
+  font-size: 3em;
+}
+
+.calculator__row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.calculator__button {
+  display: block;
+  height: 75px;
+  color: inherit;
+  font-size: 1.2em;
+  font-family: inherit;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.calculator__button:last-child {
+  background-color: #249adb;
+}
+
+.calculator__button:hover {
+  background-color: #364c63;
+}
+
+.calculator__button:last-child:hover {
+  background-color: #31a6df;
+}
+
+.calculator__button span {
+  font-size: 0.8em;
+  letter-spacing: 0.05em;
+}

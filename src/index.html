@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./index.js" defer></script>
+</head>
+<body>
+  <div class="calculator">
+    <div class="calculator__scoreboard"></div>
+    <div class="calculator__menu">
+      <div class="calculator__row">
+        <button class="calculator__button" data-type="memory" data-value="subtraction">M&minus;</button>
+        <button class="calculator__button" data-type="memory" data-value="addition">M&plus;</button>
+        <button class="calculator__button" data-type="memory" data-value="recall">MR</button>
+        <button class="calculator__button" data-type="memory" data-value="reset">MC</button>
+        <button class="calculator__button" data-type="operation" data-value="percentage">&percnt;</button>
+        <button class="calculator__button" data-type="operation" data-value="division">&divide;</button>
+      </div>
+      <div class="calculator__row">
+        <button class="calculator__button" data-type="operation" data-value="squareRoot">&#8730;</button>
+        <button class="calculator__button" data-type="operation" data-value="square">x<sup>2</sup></button>
+        <button class="calculator__button" data-type="operand" data-value="1">1</button>
+        <button class="calculator__button" data-type="operand" data-value="2">2</button>
+        <button class="calculator__button" data-type="operand" data-value="3">3</button>
+        <button class="calculator__button" data-type="operation" data-value="multiplication">&times;</button>
+      </div>
+      <div class="calculator__row">
+        <button class="calculator__button" data-type="operation" data-value="cubeRoot">&#8731;</button>
+        <button class="calculator__button" data-type="operation" data-value="cube">x<sup>3</sup></button>
+        <button class="calculator__button" data-type="operand" data-value="4">4</button>
+        <button class="calculator__button" data-type="operand" data-value="5">5</button>
+        <button class="calculator__button" data-type="operand" data-value="6">6</button>
+        <button class="calculator__button" data-type="operation" data-value="subtraction">&minus;</button>
+      </div>
+      <div class="calculator__row">
+        <button class="calculator__button" data-type="operation" data-value="yRootX">
+          <math mode="display" xmlns="http://www.w3.org/1998/Math/MathML">
+            <mroot>
+              <mi>x</mi>
+              <mn>y</mn>
+            </mroot>
+          </math>
+        </button>
+        <button class="calculator__button" data-type="operation" data-value="xPowerY">x<sup>y</sup></button>
+        <button class="calculator__button" data-type="operand" data-value="7">7</button>
+        <button class="calculator__button" data-type="operand" data-value="8">8</button>
+        <button class="calculator__button" data-type="operand" data-value="9">9</button>
+        <button class="calculator__button" data-type="operation" data-value="addition">&plus;</button>
+      </div>
+      <div class="calculator__row">
+        <button class="calculator__button" data-type="operation" data-value="reciprocal">1/x</button>
+        <button class="calculator__button" data-type="operation" data-value="powerOfTen">10<sup>x</sup></button>
+        <button class="calculator__button" data-type="operation" data-value="factorial">x&excl;</button>
+        <button class="calculator__button" data-type="operand" data-value="0">0</button>
+        <button class="calculator__button" data-type="operation" data-value="signChange">&plusmn;</button>
+        <button class="calculator__button" data-type="operation" data-value="result">&equals;</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
