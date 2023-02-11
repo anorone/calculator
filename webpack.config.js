@@ -6,6 +6,7 @@ const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
 export default {
+  mode: process.env.NODE_ENV || 'development',
   entry: ['./src/index.js', './src/style.css'],
   output: {
     path: path.resolve(dirname, 'build/'),
@@ -30,4 +31,8 @@ export default {
       template: './src/index.html',
     }),
   ],
+  devServer: {
+    static: false,
+    open: true,
+  },
 };
