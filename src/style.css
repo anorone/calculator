@@ -58,6 +58,10 @@ body {
   cursor: pointer;
 }
 
+.calculator__button_col_2 {
+  grid-column: span 2;
+}
+
 .calculator__button:last-child {
   background-color: #249adb;
 }
