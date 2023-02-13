@@ -21,7 +21,7 @@ export default class App {
     const { type, value } = target.dataset;
     const Command = commandsByButtonType[type];
     const command = new Command(value, this.calculator);
-    command.execute();
+    this.executeCommand(command);
     this.render();
   };
 
@@ -30,6 +30,12 @@ export default class App {
     const calculatorMenu = document.querySelector('.calculator__menu');
     calculatorMenu.addEventListener('click', this.handleClick);
     this.render();
+  }
+
+  executeCommand(command) {
+    if (command.execute()) {
+      this.calculator.history.push(command);
+    }
   }
 
   render() {

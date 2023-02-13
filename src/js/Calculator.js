@@ -1,5 +1,6 @@
 import { cloneDeep } from 'lodash';
 import Memory from './Memory';
+import CommandsHistory from './CommandsHistory';
 import operationsByType from './operations';
 
 const initialState = {
@@ -23,6 +24,8 @@ export default class Calculator {
     ...cloneDeep(initialState),
     memory: new Memory(),
   };
+
+  history = new CommandsHistory();
 
   calculate() {
     const { state } = this;
@@ -48,6 +51,16 @@ export default class Calculator {
       operands.length = 1;
     } else {
       this.clearAll();
+    }
+  }
+
+  undo() {
+    if (!this.history.isEmpty()) {
+      const { backup } = this.history.pop();
+      this.state = {
+        ...this.state,
+        ...backup,
+      };
     }
   }
 }
