@@ -3,6 +3,10 @@ import isUnaryOperation from '../utils/isUnary';
 
 class OperateCommand extends Command {
   execute() {
+    if (this.reciever.hasErrors()) {
+      return false;
+    }
+
     this.saveBackup();
 
     const calculator = this.reciever;

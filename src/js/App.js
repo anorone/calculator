@@ -41,9 +41,9 @@ export default class App {
   render() {
     this.scoreboardElement.innerHTML = '';
 
-    const { state } = this.calculator;
+    const { memory, state } = this.calculator;
 
-    if (state.memory.hasSavedValue()) {
+    if (memory.hasSavedValue()) {
       const memoryElement = document.createElement('span');
       memoryElement.classList.add('calculator__scoreboard-memory');
       this.scoreboardElement.appendChild(memoryElement);
@@ -52,7 +52,7 @@ export default class App {
     const scoreElement = document.createElement('p');
     scoreElement.classList.add('calculator__scoreboard-score');
 
-    if (state.errorMessage) {
+    if (this.calculator.hasErrors()) {
       scoreElement.textContent = state.errorMessage;
       scoreElement.classList.add('calculator__scoreboard-error');
       this.scoreboardElement.appendChild(scoreElement);

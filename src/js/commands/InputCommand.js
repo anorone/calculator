@@ -2,6 +2,10 @@ import Command from './Command';
 
 class InputCommand extends Command {
   execute() {
+    if (this.reciever.hasErrors()) {
+      return false;
+    }
+
     this.saveBackup();
     const { operation, operands } = this.reciever.state;
     const indexToUpdate = operation ? 1 : 0;

@@ -9,7 +9,7 @@ export default class Command {
   }
 
   saveBackup() {
-    const { memory, ...state } = this.reciever.state;
+    const { state } = this.reciever;
     this.backup = cloneDeep(state);
   }
 }

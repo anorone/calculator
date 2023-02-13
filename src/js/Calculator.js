@@ -20,10 +20,9 @@ export default class Calculator {
     percentage: '%',
   };
 
-  state = {
-    ...cloneDeep(initialState),
-    memory: new Memory(),
-  };
+  state = { ...cloneDeep(initialState) };
+
+  memory = new Memory();
 
   history = new CommandsHistory();
 
@@ -39,10 +38,8 @@ export default class Calculator {
   }
 
   clearAll() {
-    this.state = {
-      ...this.state,
-      ...cloneDeep(initialState),
-    };
+    this.state = { ...cloneDeep(initialState) };
+    this.history.clear();
   }
 
   clearEntry() {
@@ -57,10 +54,11 @@ export default class Calculator {
   undo() {
     if (!this.history.isEmpty()) {
       const { backup } = this.history.pop();
-      this.state = {
-        ...this.state,
-        ...backup,
-      };
+      this.state = { ...backup };
     }
+  }
+
+  hasErrors() {
+    return !!this.state.errorMessage;
   }
 }
