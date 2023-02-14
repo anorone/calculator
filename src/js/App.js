@@ -59,8 +59,18 @@ export default class App {
       return;
     }
 
-    const [x = '', y = ''] = state.operands;
-    const sign = Calculator.signs[state.operation] || '';
+    const [x = ''] = state.operands;
+    let [, y = ''] = state.operands;
+    let sign = Calculator.signs[state.operation] || '';
+
+    const { addition } = Calculator.signs;
+    const { subtraction } = Calculator.signs;
+
+    if (y < 0 && (sign === addition || sign === subtraction)) {
+      y = -y;
+      sign = (sign === addition ? subtraction : addition);
+    }
+
     const score = `${x}${sign}${y}`;
 
     scoreElement.textContent = score;
