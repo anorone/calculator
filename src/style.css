@@ -8,6 +8,34 @@ body {
   background-color: #333;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  font-size: 1px;
+}
+
+.theme-switcher {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.theme-switcher::before {
+  display: block;
+  width: 75px;
+  height: 75px;
+  background-image: url('./img/icon_theme.png');
+  background-size: contain;
+  filter: invert(1);
+  content: '';
+}
+
 .calculator {
   width: 450px;
   margin: auto;
@@ -83,4 +111,12 @@ body {
 .calculator__button span {
   font-size: 0.8em;
   letter-spacing: 0.05em;
+}
+
+.light {
+  background-color: #ccc;
+}
+
+.light .theme-switcher::before {
+  filter: invert(0);
 }
