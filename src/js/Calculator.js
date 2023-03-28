@@ -1,7 +1,7 @@
 import { cloneDeep } from 'lodash';
 import Memory from './Memory';
 import CommandsHistory from './CommandsHistory';
-import operationsByType from './operations';
+import getFunction from './operations';
 
 const initialState = {
   operation: '',
@@ -20,7 +20,7 @@ export default class Calculator {
     percentage: '%',
   };
 
-  state = { ...cloneDeep(initialState) };
+  state = cloneDeep(initialState);
 
   memory = new Memory();
 
@@ -28,8 +28,9 @@ export default class Calculator {
 
   calculate() {
     const { state } = this;
+    const operate = getFunction(state.operation);
     try {
-      const result = operationsByType[state.operation](...state.operands);
+      const result = operate(...state.operands);
       state.operands.splice(0, 2, result);
       state.operation = '';
     } catch (err) {
@@ -38,7 +39,7 @@ export default class Calculator {
   }
 
   clearAll() {
-    this.state = { ...cloneDeep(initialState) };
+    this.state = cloneDeep(initialState);
     this.history.clear();
   }
 

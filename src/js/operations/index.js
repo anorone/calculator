@@ -9,7 +9,7 @@ import getFactorial from './factorial';
 import calcPercent from './percent';
 import identity from './identity';
 
-export default {
+const operationsByType = {
   addition: add,
   subtraction: subtract,
   multiplication: multiply,
@@ -28,3 +28,5 @@ export default {
   percentage: calcPercent,
   result: identity,
 };
+
+export default (type) => operationsByType[type];
