@@ -1,16 +1,6 @@
 import Calculator from './Calculator';
-import InputCommand from './commands/InputCommand';
-import OperateCommand from './commands/OperateCommand';
-import MemoizeCommand from './commands/MemoizeCommand';
-import ClearCommand from './commands/ClearCommand';
+import getCommand from './commands';
 import render from './render';
-
-const commandsByButtonType = {
-  operand: InputCommand,
-  operation: OperateCommand,
-  memory: MemoizeCommand,
-  clear: ClearCommand,
-};
 
 export default class App {
   calculator = new Calculator();
@@ -22,7 +12,7 @@ export default class App {
   handleClick = (e) => {
     const target = e.target.closest('.calculator__button');
     const { type, value } = target.dataset;
-    const Command = commandsByButtonType[type];
+    const Command = getCommand(type);
     const command = new Command(value, this.calculator);
     this.executeCommand(command);
     this.render(this.calculator, this.scoreboardElement);
